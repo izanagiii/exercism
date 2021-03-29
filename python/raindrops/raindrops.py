@@ -1,15 +1,12 @@
-def convert(number):
+def convert(number: int) -> str:
     result = ""
-    if number % 3 ==  0:
-        result += "Pling"
-    
-    if number % 5 == 0:
-        result += "Plang"
-        
-    if number % 7 == 0:
-        result += "Plong"
-    
-    if number % 3 !=  0 and  number % 5 != 0  and  number % 7  != 0:
+    divisors = {"3": "Pling", "5": "Plang", "7": "Plong"}
+
+    for divisor in divisors:
+        if number % int(divisor) == 0:
+            result += divisors[divisor]
+
+    if result == "":
         result = str(number)
-    
+
     return result
