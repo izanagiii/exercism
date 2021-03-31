@@ -1,9 +1,11 @@
 def convert(number: int) -> str:
     result = ""
-    divisors = {"3": "Pling", "5": "Plang", "7": "Plong"}
+    divisors = {5: "Plang", 3: "Pling", 7: "Plong"}
 
-    for divisor in divisors:
-        if number % int(divisor) == 0:
+    # used sorted() to make sure python vers less than 3.7
+    # still respect the precedence of the key ordering
+    for divisor in sorted(divisors):
+        if number % divisor == 0:
             result += divisors[divisor]
 
     if result == "":
